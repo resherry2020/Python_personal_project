@@ -1,3 +1,2 @@
 ## Python_personal_project
-# Fruit Smoothie <br />
-[classes data_structures ](https://edabit.com/challenge/yuPWwSbCGPm2KzSzx)
+1. Fruit Smoothie [classes data_structures ](https://edabit.com/challenge/yuPWwSbCGPm2KzSzx)
