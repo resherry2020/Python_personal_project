@@ -1,0 +1,187 @@
+#1
+#single node of a singly linked list
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+#creating a single node
+# first = Node(3)
+# print(first.data)
+
+#2
+class Node:
+    
+    def __init__(self, data):
+        self.data = data #assign data
+        self.next = None #initialise next as null
+
+#Linked List class contains a Node object
+class LinkedList:
+    #initialise head
+    def __init__(self):
+        self.head = None 
+
+#Start with the empty list
+llist = LinkedList()
+ 
+llist.head = Node(1)
+second = Node(2)
+third = Node(3)
+print(f'pre-link\nllist:{llist},\n 1:{llist.head.data},\n2:{second.data},\n3:{third.data}')
+llist.head.next = second #link first node with second
+second.next = third #link second node with the third node
+print(f'linked\n2:{llist.head.next.data}\n3:{llist.head.next.next.data}')  
+print(llist.head.next.next.next)
+
+
+#we have created a simple linked list with three nodes; 
+#let's traverse it and print the data in each node using the print_list method.
+class Node:
+    
+    def __init__(self, data):
+        self.data = data #assign data
+        self.next = None #initialize next as null
+
+#Linked List class contains a Node object
+class LinkedList:
+    
+    #initialise head
+    def __init__(self):
+        self.head = None
+        self.list = []
+        
+    def print_list(self):
+        cur_node = self.head
+        while cur_node != None:
+            print(cur_node.data)
+            cur_node = cur_node.next
+
+#Start with the empty list
+llist = LinkedList()
+ 
+llist.head = Node(1)
+second = Node(2)
+third = Node(3)
+forth = Node(4)
+ 
+llist.head.next = second #link first node with second 
+second.next = third #link second node with the third node
+third.next = forth
+
+llist.print_list()
+
+
+# Insert at the first position (prepend)
+
+def prepend(self, data):
+
+    new_node = Node(data) #creating the new node
+
+    if self.head == None: #linked list is empty
+        self.head = new_node #give the head reference to the new node
+    else:
+        new_node.next = self.head #connect the new node to the linked list
+        self.head = new_node #give the head reference to the new node
+        
+# Insert at the last position (append)
+def append(self,data):
+    new_node = Node(data) #creating the new node
+        
+    if self.head == None: #linked list is empty
+        self.head = new_node #give the head reference to the new node
+    else:
+        #traversing the linked list to find the last node
+        curr = self.head
+        while curr.next != None:
+            curr = curr.next
+        curr.next = new_node #point the next element of the last node to the newly created node
+
+
+# Insert on anywhere in between (insert)
+def insert(self, data, position):
+        #创建一个新的节点对象，用传入的数据初始化它。    
+        new_node = Node(data)
+        #将链表的头节点赋给变量 cur_node，这将用于遍历链表
+        cur_node = self.head
+        #初始化一个名为 prev 的变量，它将用于存储当前节点的前一个节点
+        prev = None
+        #初始化一个名为 count 的计数器，用于跟踪当前遍历到的位置
+        count = 0
+        
+        #用一个循环遍历链表，直到到达目标位置或链表末尾。
+        while cur_node != None and count < position:
+            #将当前节点赋给 prev 变量
+            prev = cur_node
+            #将当前节点的下一个节点赋给 cur_node
+            cur_node = cur_node.next
+            count += 1
+        # 如果循环在未达到链表末尾时找到了目标插入位置
+        if cur_node != None:
+            # 将前一个节点的 `next` 属性设置为新节点，使其指向新节点
+            prev.next = new_node
+            # 将新节点的 `next` 属性设置为当前节点，使新节点指向原先的当前节点
+            new_node.next = cur_node
+        else:  # 如果循环到达了链表的末尾，或者链表为空（头节点为 None）
+            if prev is None:
+                # 如果前一个节点是 None（即当前节点是头节点或链表为空）
+                new_node.next = cur_node
+                self.head = new_node
+            else:
+                # 在链表末尾插入新节点
+                prev.next = new_node
+
+
+# Delete from the start
+def delete_first(self):
+    if self.head == None:
+        print("Empty Linked List")
+    else:
+        cur_node = self.head
+        self.head = self.head.next
+        del cur_node
+
+# Delete from the end
+def delete_last(self):
+    if self.head == None:
+        print("Empty Linked List")
+    else:
+        cur_node = self.head
+        prev = None
+        while cur_node.next != None:
+            prev = cur_node
+            cur_node = cur_node.next
+        prev.next = None
+        del cur_node
+
+# Delete between two nodes
+def delete_position(self, position):
+    if self.head == None:
+        print("Empty Linked List")
+    else:
+        cur_node = self.head
+        prev = None
+        count = 0
+        while cur_node != None and count < position:
+            prev = cur_node
+            cur_node = cur_node.next
+            count += 1
+        if cur_node == self.head:
+            self.head = cur_node.next
+            del cur_node
+        else:
+            prev.next = cur_node.next
+            del cur_node
+
+##Doubly Linked Lists
+#node of doubly linked list    
+class Node:    
+    def __init__(self, data):    
+        self.data = data;    
+        self.previous = None    
+        self.next = None
+class DoublyLinkedList:    
+    #head and tail of the doubly linked list    
+    def __init__(self):    
+        self.head = None   
+        self.tail = None

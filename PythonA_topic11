@@ -1,0 +1,36 @@
+from queue import Queue
+ 
+#initialising a queue
+q1 = Queue(maxsize = 10)
+q1.put(1)
+q1.put(2)
+q1.put(3)
+ 
+q2 = Queue(maxsize = 10)
+q2.put(5)
+q2.put(6)
+q2.put(7)
+
+class stack():
+    
+    def push(self,q1,q2):
+        while q2.qsize() > 0:
+            q1.put(q2.get())
+        return q1
+    
+    def pop(self,q1,q2):
+        if q1.qsize() > 1:
+            while q1.qsize() > 0:
+                q2.put(q1.get())
+        q3 = q1
+        q1 = q2
+        q2 = q3   
+        return q1,q2
+    
+stack = stack()
+print(stack.push(q1,q2))
+print(stack.pop(q1,q2))
+
+            
+            
+        
